@@ -1,0 +1,11 @@
+<ul> 
+  <% @posts.each do |post|%> 
+    <li>
+      <div class= 'card'>
+        <h2><%= post.user.username %></h2>
+        <body> <%= post.content %> </body>
+        <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
+      </div>
+    </li>
+  <% end %>
+</ul>
