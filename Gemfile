@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootstrap'
 gem 'sprockets-rails'
+gem 'omniauth-facebook'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
