@@ -14,3 +14,11 @@
 
  @import "bootstrap";
  @import "posts";
+
+ ul li {
+   list-style-type: none;
+ }
+
+ .text-area {
+   height: 400px;
+ }
