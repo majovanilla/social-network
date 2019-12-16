@@ -1,9 +1,12 @@
 <ul> 
   <% @posts.each do |post|%> 
     <li>
-      <div class= 'card'>
-        <h2><%= post.user.username %></h2>
-        <body> <%= post.content %> </body>
+      <div class= 'card row'>
+        <div class= "col-8">
+          <%= image_tag post.user.gravatar_url, class: "col-2"%>
+          <h2 class = " col-8"><%= post.user.username %></h2>
+        </div>
+        <body class= "col-8"> <%= post.content %> </body>
         <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
       </div>
     </li>

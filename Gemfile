@@ -29,6 +29,7 @@ gem 'sprockets-rails'
 gem 'omniauth-facebook'
 gem 'gravtastic'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -41,7 +42,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
   gem 'rspec-rails'
-  gem 'jquery-rails'
 end
 
 group :development do
