@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: a1c672930811d6bf71ce522c522bc255c345a6b8
+  branch: master
+  specs:
+    faker (2.8.1)
+      i18n (>= 1.6, < 1.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -268,6 +276,7 @@ DEPENDENCIES
   capybara
   database_cleaner
   devise
+  faker!
   gravtastic
   jbuilder (~> 2.7)
   jquery-rails
