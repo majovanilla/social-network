@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   resources :posts
   post '/', to: 'posts#create'
+
   resources :users
+  resources :comments, only: %i[new create show]
+  resources :likes, only: %i[new create show]
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
