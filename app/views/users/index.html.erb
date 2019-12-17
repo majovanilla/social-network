@@ -1,15 +1,14 @@
 <ul class="users-list">
     <% @users.each do |user| %>
     <li class='user-info'>
-        <div class='row col-8 mx-auto d-flex justify-content-center my-5'></div>
-        <div class=col-2>
-            <%= image_tag user.gravatar_url %>
-        </div>
-        <div class='col-3'>
-            <%= user.username %>
-            <br>
-            <%= user.email %>
-        </div>
+        <div class='row col-9 mx-auto my-5'>
+            <div class='col-6 row'>
+                <div class="col-5"> <%= image_tag user.gravatar_url %> </div>
+                <p class="col-7"><%= user.username %></p>
+            </div>
+            <div>
+                <button class="btn btn-primary"> Add friend </button>
+            </div>
         </div>
     </li>
     <% end %>
