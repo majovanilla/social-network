@@ -4,10 +4,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(:id)
-    @comment = @post.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.user = current_user
-    redirect_to :back if @comment.save
+    redirect_to root_path if @comment.save
   end
 
   def show
@@ -17,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comments).permit(:content)
+    params.require(:comment).permit(:content, :post_id)
   end
 end

@@ -19,12 +19,17 @@ class PostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+    @comment = @post.comments.new
+    @user = @post.user
+  end
 
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
     @comments = @post.comments
+    @comment = @post.comments.new
   end
 
   private
