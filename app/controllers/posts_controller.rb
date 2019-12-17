@@ -30,6 +30,8 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
     @comments = @post.comments
     @comment = @post.comments.new
+    @likes = @post.likes
+    @like = @post.likes.new
   end
 
   private

@@ -8,6 +8,10 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
     @like.user = current_user
     redirect_to root_path if @like.save
+    if @like && @like.save
+      @like.destroy
+      redirect_to root_path
+    end
   end
 
   private
