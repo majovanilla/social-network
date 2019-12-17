@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+  has_many :comments, through: :posts
+  has_many :likes, through: :posts
 
   include Gravtastic
   gravtastic
