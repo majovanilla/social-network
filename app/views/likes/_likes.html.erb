@@ -2,7 +2,12 @@
     <%= form_with model: @like do |f| %>
     <div class="actions text-center">
         <%= f.hidden_field :post_id, value: post_id%>
-        <%= f.submit "Like", class:"btn btn-primary" %>
+        <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+        <% if pre_like %>
+            <%= f.submit "Unlike", class:"btn btn-primary", method: :delete %>
+        <% else %>
+            <%= f.submit "Like", class:"btn btn-primary" %>
+        <% end %>
     </div>
     <% end %>
 </div>
