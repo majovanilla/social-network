@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
@@ -12,6 +14,7 @@ class PostsController < ApplicationController
       flash[:success] = 'Post created'
       redirect_to root_path
     else
+      flash.now[:danger] = 'Try again'
       render 'new'
     end
   end
@@ -19,7 +22,8 @@ class PostsController < ApplicationController
   def show; end
 
   def index
-    @posts = Post.all
+    @post = Post.new
+    @posts = Post.all.order(created_at: :desc)
   end
 
   private

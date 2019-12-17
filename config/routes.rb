@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resources :posts
+  post '/', to: 'posts#create'
   resources :users
 
   devise_scope :user do
