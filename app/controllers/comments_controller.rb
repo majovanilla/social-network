@@ -5,13 +5,18 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(:id)
-    @user = current_user
     @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
+    redirect_to :back if @comment.save
+  end
+
+  def show
+    @comments = @post.comments
   end
 
   private
 
   def comment_params
-    params.require(:comments).permit(:content, :user_id)
+    params.require(:comments).permit(:content)
   end
 end
