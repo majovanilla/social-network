@@ -1,14 +1,19 @@
-<ul class="posts-list"> 
-  <% @posts.each do |post|%> 
-    <li>
-      <div class= 'card row'>
-        <div class= "col-8">
-          <%= image_tag post.user.gravatar_url, class: "col-2"%>
-          <h2 class = " col-8"><%= post.user.username %></h2>
+
+  <ul class="posts-list"> 
+    <% @posts.each do |post|%> 
+      <li >
+        <div class= 'card row'>
+          <div class= "row col-8">
+            <%= image_tag post.user.gravatar_url(size:40)%>
+            <p class = "font-weight-bold col-8"><%= post.user.username %></p>
+          </div>
+          <body class= "col-8"> <%= post.content %> </body>
+          <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
+          <div class='col-12'>
+            <%= render 'comments/comment', object: post.comments %>
+          </div>
         </div>
-        <body class= "col-8"> <%= post.content %> </body>
-        <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      
+      </li>
+    <% end %>
+  </ul>

@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
+    @comments = @post.comments
   end
 
   private
