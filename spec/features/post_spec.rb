@@ -11,7 +11,8 @@ RSpec.feature 'Posts', type: :feature do
     page.fill_in 'user_email', with: 'john@example.com'
     page.fill_in 'user_password', with: 'password'
     click_on(class: 'login')
-    page.fill_in 'content',  with: 'Testing the post feature'
+    page.fill_in 'post_content', with: 'Testing the post feature'
     click_on 'Post'
+    have_content 'Post created'
   end
 end
