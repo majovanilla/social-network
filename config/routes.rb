@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users
   resources :comments, only: %i[new create show]
   resources :likes, only: %i[new create show]
-  resources :friendships, only: %i[new create destroy]
+  resources :friendships, only: %i[new create destroy index]
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
