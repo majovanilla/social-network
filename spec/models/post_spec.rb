@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
-  let(:user) {User.create(username: 'John', 
-                          email: 'john@example.com',
-                          password: 'password')}
+  let(:user) do
+    User.create(username: 'John',
+                email: 'john@example.com',
+                password: 'password')
+  end
 
   it 'validates the content' do
     post = Post.new(content: '')

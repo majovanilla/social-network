@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'validates post and user presence' do
+    comment = Comment.new
+    comment.save
+    expect(comment).to be_invalid
+  end
 end

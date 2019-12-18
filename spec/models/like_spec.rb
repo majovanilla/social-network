@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'validates post and user presence' do
+    like = Like.new
+    like.save
+    expect(like).to be_invalid
+  end
 end
