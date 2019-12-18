@@ -5,7 +5,7 @@
         <div class="row col-9 mx-auto my-5 d-flex justify-content-center">
             <div class='col-6 row'>
                 <div class="col-5"> <%= image_tag user.gravatar_url %> </div>
-                <p class="col-7"><%= user.username %></p>
+                <p class="col-7"><%= link_to user.username, user_path(user.id) %></p>
             </div>
             <div>
                 <button class="btn btn-primary"> Add friend </button>

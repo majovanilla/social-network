@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @comment = Comment.new
+    @post = Post.new
+    @like = Like.new
   end
 
   def index

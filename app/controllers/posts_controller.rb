@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = @user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Post created'
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     else
       flash.now[:danger] = 'Try again'
       render 'new'
@@ -39,5 +39,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content)
   end
-
 end

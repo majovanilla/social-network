@@ -1,5 +1,7 @@
-class LikesController < ApplicationController
+# frozen_string_literal: true
+#before_action :find_like, only: [:destroy]
 
+class LikesController < ApplicationController
   def new
     @like = Like.new
   end
@@ -7,26 +9,12 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     @like.user = current_user
-    redirect_to root_path if @like.save
-    if @like && @like.save
-      @like.destroy
-      redirect_to root_path
-    end
-  end
-
-  def destroy
-    @like.destroy if already_liked?
-    redirect_to root_path
+    redirect_back(fallback_location: root_path) if @like.save
   end
 
   private
 
   def like_params
     params.require(:like).permit(:post_id)
-  end
-
-  def already_liked?
-    Like.where(user_id: current_user.id, post_id:
-    params[:post_id]).exists?
   end
 end
