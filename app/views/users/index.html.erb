@@ -8,7 +8,9 @@
                 <p class="col-7"><%= link_to user.username, user_path(user.id) %></p>
             </div>
             <div>
-                <% button_to 'Add friend', method:"" class:"btn btn-primary" %>
+                <% if !current_user.friend?(user) %>
+                    <%= button_to 'Add friend', friendships_path(friendship: { user_id: current_user, friend_id: user }), method: :post, class:"btn btn-primary" %>
+                <% end %>
             </div>
         </div>
     </li>
