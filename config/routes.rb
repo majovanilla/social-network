@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   resources :posts
   post '/', to: 'posts#create'
 
-  resources :users
+  resources :users do
+    resources :friendships, only: %i[new create destroy index update]
+    post 'accept', to: 'friendships#update'
+    post 'decline', to: 'friendships#destroy'
+  end
+
   resources :comments, only: %i[new create show]
   resources :likes, only: %i[new create show]
-  resources :friendships, only: %i[new create destroy index]
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
