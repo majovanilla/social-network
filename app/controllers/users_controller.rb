@@ -17,5 +17,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @friendship = Friendship.new
+    # @pending_requests = current_user.pending_friends
   end
 end

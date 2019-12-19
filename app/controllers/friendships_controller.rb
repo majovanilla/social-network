@@ -28,11 +28,14 @@ class FriendshipsController < ApplicationController
 
   def index
     @friend_requests = current_user.friend_requests
+    @pending_requests = current_user.pending_friends
   end
 
   def destroy
-    friendship = find_friendship
-    if friendship.delete
+    user = User.find(params[:user])
+    friendship = Friendship.where('user_id = ? and friend_id= ?', user, current_user)
+    friendship += Friendship.where('user_id = ? and friend_id= ?', current_user, user)
+    if Friendship.delete(friendship)
       flash[:success] = 'Friendship deleted'
     else
       flash[:danger] = 'Try again'
@@ -48,6 +51,6 @@ class FriendshipsController < ApplicationController
 
   def find_friendship
     user = User.find(params[:id])
-    Friendship.where('user_id = ? and friend_id = ?', user, current_user).take
+    Friendship.where('user_id = ? and friend_id = ?', user || current_user, user || current_user).take
   end
 end
