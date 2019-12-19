@@ -51,6 +51,6 @@ class FriendshipsController < ApplicationController
 
   def find_friendship
     user = User.find(params[:id])
-    Friendship.where('user_id = ? and friend_id = ?', user || current_user, user || current_user).take
+    Friendship.where('user_id = ? and friend_id = ?', user, current_user).take
   end
 end
