@@ -34,6 +34,7 @@ gem 'jquery-rails'
 gem 'popper_js'
 gem 'omniauth-facebook'
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

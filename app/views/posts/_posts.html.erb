@@ -1,14 +1,26 @@
-<ul class="posts-list"> 
-  <% @posts.each do |post|%> 
-    <li>
-      <div class= 'card row'>
-        <div class= "col-8">
-          <%= image_tag post.user.gravatar_url, class: "col-2"%>
-          <h2 class = " col-8"><%= post.user.username %></h2>
-        </div>
-        <body class= "col-8"> <%= post.content %> </body>
-        <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
+<ul class="posts-list">
+  <% object.each do |post|%>
+  <li>
+    <div class='card row'>
+      <div class="row col-8">
+        <%= image_tag post.user.gravatar_url(size:40)%>
+        <p class="font-weight-bold col-8"><%= post.user.username %></p>
       </div>
-    </li>
+
+      <body class="col-8"> <%= post.content %> </body>
+      <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
+      <div class='col-12'>
+        <%= render 'comments/comment', object: post.comments %>
+      </div>
+      <div class='col-12'>
+        <%= render 'comments/create', post_id: post.id %>
+      </div>
+      <div class='col-6 row'>
+        <%= render 'likes/likes', post_id: post.id, post: post %>
+        <p><%= post.likes.count %>&nbsp Likes</p>
+      </div>
+    </div>
+
+  </li>
   <% end %>
 </ul>

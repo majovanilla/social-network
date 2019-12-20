@@ -11,18 +11,26 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Post created'
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     else
       flash.now[:danger] = 'Try again'
       render 'new'
     end
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+    @comment = @post.comments.new
+    @user = @post.user
+  end
 
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
+    @comments = @post.comments
+    @comment = @post.comments.new
+    @likes = @post.likes
+    @like = @post.likes.new
   end
 
   private
