@@ -20,13 +20,15 @@ RSpec.feature 'Friendships', type: :feature do
     click_on(class: 'login')
     click_on 'Users'
     expect(page.current_path).to eq users_path
-    # first('.item > a').click
     find('.add-friend', match: :first).click
     have_content 'Friendship successfully sent'
     have_content 'badge'
     click_on 'Notifications'
     expect(page.current_path).to eq user_friendships_path(john)
+    count = Friendship.count
     click_on 'Accept'
     have_content 'Friendship accepted'
+    count2 = Friendship.count
+    expect(count).not_to eq(count2)
   end
 end
