@@ -30,7 +30,6 @@ class User < ApplicationRecord
   # Users who have requested to be friends
   def friend_requests
     inverse_friendships.map { |friendship| friendship.user unless friendship.accepted }.compact
-
   end
 
   def friend?(user)
