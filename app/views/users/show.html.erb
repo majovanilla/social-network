@@ -1,0 +1,13 @@
+<div class='row col-8 mx-auto d-flex justify-content-center my-5'>
+  <%= render 'user' %>
+</div>
+<ul> 
+  <% @user.posts.each do |post|%> 
+    <li>
+      <div class= 'card col-6 m-auto'>
+        <body> <%= post.content %> </body>
+        <p>Posted <%= time_ago_in_words(post.created_at)%> ago</p>
+      </div>
+    </li>
+  <% end %>
+</ul>

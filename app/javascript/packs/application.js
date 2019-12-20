@@ -15,3 +15,8 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//= require jquery-rails
+//= require popper
+//= require bootstrap
+//= require turbolinks

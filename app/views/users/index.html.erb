@@ -1,0 +1,16 @@
+<h2 class="text-center my-5">Users</h2>
+<ul class="users-list">
+    <% @users.each do |user| %>
+    <li class='user-info col-12'>
+        <div class="row col-9 mx-auto my-5 d-flex justify-content-center">
+            <div class='col-6 row'>
+                <div class="col-5"> <%= image_tag user.gravatar_url %> </div>
+                <p class="col-7"><%= user.username %></p>
+            </div>
+            <div>
+                <button class="btn btn-primary"> Add friend </button>
+            </div>
+        </div>
+    </li>
+    <% end %>
+</ul>
