@@ -17,9 +17,7 @@ class User < ApplicationRecord
   is_gravtastic
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.accepted }
-    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.accepted }
-    friends_array.compact
+    friendships.map { |friendship| friendship.friend if friendship.accepted }
   end
 
   # Users who have yet to confirme friend requests

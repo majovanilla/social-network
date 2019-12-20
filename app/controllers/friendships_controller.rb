@@ -19,6 +19,7 @@ class FriendshipsController < ApplicationController
     friendship = find_friendship
     friendship.accepted = true
     if friendship.save
+      Friendship.create(user:friendship.friend, friend:friendship.user, accepted:true)
       flash[:success] = 'Friendship accepted'
     else
       flash[:danger] = 'Try again'
