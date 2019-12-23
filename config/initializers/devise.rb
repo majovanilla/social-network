@@ -298,5 +298,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   # Omniauth - Facebook
-  config.omniauth :facebook, "2541746986093190", "9b2c1b4acd13c321c65bd6d524f5b2f2", callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook, "2541746986093190", "9b2c1b4acd13c321c65bd6d524f5b2f2", callback_url: "https://developers.facebook.com/apps/2541746986093190/fb-login/settings/"
 end
