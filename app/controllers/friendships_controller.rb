@@ -33,9 +33,9 @@ class FriendshipsController < ApplicationController
 
   def destroy
     user = User.find(params[:user])
-    friendship = Friendship.where('user_id = ? and friend_id= ?', user, current_user)
-    friendship += Friendship.where('user_id = ? and friend_id= ?', current_user, user)
-    if Friendship.delete(friendship)
+    friendship = Friendship.where('user_id = ? and friend_id= ?', user.id, current_user.id).take ||
+                 Friendship.where('user_id = ? and friend_id= ?', current_user.id, user.id).take
+    if friendship.delete
       flash[:success] = 'Friendship deleted'
     else
       flash[:danger] = 'Try again'
