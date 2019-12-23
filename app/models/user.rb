@@ -35,4 +35,8 @@ class User < ApplicationRecord
   def friend?(user)
     friends.include?(user)
   end
+
+  def find_friendship(friend)
+    Friendship.where('user_id = ? and friend_id = ?', self, friend).take
+  end
 end

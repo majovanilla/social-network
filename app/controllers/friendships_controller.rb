@@ -16,7 +16,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    friendship = find_friendship
+    friendship = Friendship.find(params[:friendship_id])
     friendship.accepted = true
     if friendship.save
       flash[:success] = 'Friendship accepted'
@@ -32,9 +32,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:user])
-    friendship = Friendship.where('user_id = ? and friend_id= ?', user.id, current_user.id).take ||
-                 Friendship.where('user_id = ? and friend_id= ?', current_user.id, user.id).take
+    friendship = Friendship.find(params[:friendship_id])
     if friendship.delete
       flash[:success] = 'Friendship deleted'
     else
@@ -47,10 +45,5 @@ class FriendshipsController < ApplicationController
 
   def friendship_params
     params.require(:friendship).permit(:user_id, :friend_id)
-  end
-
-  def find_friendship
-    user = User.find(params[:id])
-    Friendship.where('user_id = ? and friend_id = ?', user, current_user).take
   end
 end

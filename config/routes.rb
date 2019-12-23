@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   post '/', to: 'posts#create'
 
   resources :users do
-    resources :friendships, only: %i[new create destroy index update]
+    resources :friendships, only: %i[new create destroy index update] do
+      post 'accept', to: 'friendships#update'
+      post 'decline', to: 'friendships#destroy'
+    end
     #post 'request', to: 'friendships#create'
-    #post 'accept', to: 'friendships#update'
-    #post 'decline', to: 'friendships#destroy'
     #post 'delete', to: 'friendships#destroy'
   end
 
