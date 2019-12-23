@@ -14,7 +14,7 @@
                     <span class="badge badge-danger"><%= current_user.friend_requests.count %></span>
                     <% end %>
                 </li>
-                <li class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: 'delete' %></li>
+                <li class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                 <% end %>
             </ul>
         </div>

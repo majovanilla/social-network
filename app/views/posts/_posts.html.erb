@@ -1,6 +1,6 @@
 <ul class="posts-list">
   <% object.each do |post|%>
-    <% if current_user.friends.include?(post.user) %>  
+    <% if current_user.friends.include?(post.user) || post.user == current_user%>  
       <li>
         <div class='card row'>
           <div class="row col-8">
@@ -20,7 +20,6 @@
             <p><%= post.likes.count %>&nbsp Likes</p>
           </div>
         </div>
-
       </li>
       <% end %>
   <% end %>

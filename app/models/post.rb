@@ -3,4 +3,5 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
   validates :content, presence: true
+  scope :right_order, -> { order(created_at: :desc) }
 end
