@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    redirect_back(fallback_location: root_path) if @comment.save
+    redirect_back(fallback_location: ) if @comment.save
   end
 
   def show
