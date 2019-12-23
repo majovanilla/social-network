@@ -19,7 +19,7 @@ class FriendshipsController < ApplicationController
     friendship = Friendship.find(params[:friendship_id])
     friendship.accepted = true
     if friendship.save
-      Friendship.create(user:friendship.friend, friend:friendship.user, accepted:true)
+      Friendship.create(user: friendship.friend, friend: friendship.user, accepted: true)
       flash[:success] = 'Friendship accepted'
     else
       flash[:danger] = 'Try again'
@@ -33,10 +33,10 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    friendship = Friendship.find(params[:friendship_id])
-    inverse_friendship = Friendship.where('user_id = ? and friend_id = ?', friend, self).take
+    friendship = Friendship.find(params[:id])
+    inverse_friendship = current_user.find_friendship(friendship.user)
     if friendship.delete
-      inverse_friendship.delete
+      inverse_friendship&.delete
       flash[:success] = 'Friendship deleted'
     else
       flash[:danger] = 'Try again'

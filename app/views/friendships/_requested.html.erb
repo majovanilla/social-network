@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-5 row d-flex justify-content-between">
                     <%= button_to 'Accept', user_friendship_accept_path(friendship_id: user.find_friendship(current_user)), class:"btn btn-success" %>
-                    <%= button_to 'Decline', user_friendship_decline_path(friendship_id: user.find_friendship(current_user)), method: :destroy, class:"btn btn-danger" %>
+                    <%= button_to 'Decline', user_friendship_path(id: user.find_friendship(current_user)), method: :delete, class:"btn btn-danger" %>
                 </div>
             </div>
         </li>
