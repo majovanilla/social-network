@@ -10,9 +10,9 @@
                     </div>
                     <div class='friendship-button'>
                         <% if !current_user.friend?(user) && !current_user.pending_friends.include?(user)%>
-                            <%= button_to 'Add friend', user_request_path(current_user, friendship: { user_id: current_user, friend_id: user.id }), method: :post, class:"btn btn-primary add-friend" %>
+                            <%= button_to 'Add friend', user_friendships_path(current_user, friendship: { user_id: current_user, friend_id: user.id }), method: :post, class:"btn btn-primary add-friend" %>
                         <% elsif current_user.friend?(user) %>
-                            <%= button_to 'Delete friend', user_delete_path(current_user, user: user), method: :destroy, class:"btn btn-danger delete-friend" %>
+                            <%= button_to 'Delete friend', user_friendship_path(current_user, friendship_id: user.find_friendship(current_user)), method: :delete, class:"btn btn-danger delete-friend" %>
                         <% elsif current_user.pending_friends.include?(user) %>
                             <%= link_to 'Friend added', user, class:"btn btn-secondary" %>
                         <% end %>
