@@ -12,8 +12,6 @@ Rails.application.routes.draw do
       post 'accept', to: 'friendships#update'
       post 'decline', to: 'friendships#destroy'
     end
-    #post 'request', to: 'friendships#create'
-    #post 'delete', to: 'friendships#destroy'
   end
 
   resources :comments, only: %i[new create show]
