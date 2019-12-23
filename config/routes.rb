@@ -8,11 +8,10 @@ Rails.application.routes.draw do
   post '/', to: 'posts#create'
 
   resources :users do
-    resources :friendships, only: %i[new create destroy index update]
-    post 'request', to: 'friendships#create'
-    post 'accept', to: 'friendships#update'
-    post 'decline', to: 'friendships#destroy'
-    post 'delete', to: 'friendships#destroy'
+    resources :friendships, only: %i[new create destroy index update] do
+      post 'accept', to: 'friendships#update'
+      post 'decline', to: 'friendships#destroy'
+    end
   end
 
   resources :comments, only: %i[new create show]
@@ -21,7 +20,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
     get 'login', to: 'devise/sessions#new'
-    get 'logout', to: 'devise/sessions#destroy'
   end
 
 end

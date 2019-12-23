@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def create
     @user = current_user
     @post = @user.posts.build(post_params)
+
     if @post.save
       flash[:success] = 'Post created'
       redirect_back(fallback_location: root_path)
@@ -27,7 +28,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.right_order
     @comments = @post.comments
     @comment = @post.comments.new
     @likes = @post.likes

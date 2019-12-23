@@ -25,3 +25,4 @@ users = User.all
   content = Faker::Lorem.paragraphs(number: 1)
   users.each { |user| user.posts.create!(content: content) }
 end
+
