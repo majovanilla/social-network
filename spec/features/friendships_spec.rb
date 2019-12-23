@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Friendships', type: :feature do
-  scenario 'Succesfully logs in/out an existing user' do
+  scenario 'Succesfully logs in/out' do
     john = User.create(username: 'John',
                        email: 'john@example.com',
                        password: 'password')
