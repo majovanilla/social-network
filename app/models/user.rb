@@ -39,6 +39,7 @@ class User < ApplicationRecord
   end
 
   def find_friendship(friend)
-    Friendship.where('user_id = ? and friend_id = ?', self, friend).take
+    Friendship.where('user_id = ? and friend_id = ?', self, friend).take ||
+      Friendship.where('user_id = ? and friend_id = ?', friend, self).take
   end
 end

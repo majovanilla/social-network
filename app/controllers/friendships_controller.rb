@@ -32,7 +32,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    friendship = Friendship.find(params[:friendship_id])
+    friendship = Friendship.find(params[:id])
     if friendship.delete
       flash[:success] = 'Friendship deleted'
     else
