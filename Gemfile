@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-
 gem 'bootstrap', '~> 4.3.1'
 gem 'sprockets-rails'
 gem 'omniauth-facebook'
@@ -32,9 +31,6 @@ gem 'gravtastic'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'jquery-rails'
 gem 'popper_js'
-gem 'omniauth-facebook'
-
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
