@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.right_order
     @comments = @post.comments
     @comment = @post.comments.new
     @likes = @post.likes

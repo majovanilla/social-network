@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 class User < ApplicationRecord
@@ -13,15 +12,12 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend
 
-
   include Gravtastic
   gravtastic
   is_gravtastic
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.accepted }
-    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.accepted }
-    friends_array.compact
+    friendships.map { |friendship| friendship.friend if friendship.accepted }
   end
 
   # Users who have yet to confirme friend requests
@@ -39,7 +35,6 @@ class User < ApplicationRecord
   end
 
   def find_friendship(friend)
-    Friendship.where('user_id = ? and friend_id = ?', self, friend).take ||
-      Friendship.where('user_id = ? and friend_id = ?', friend, self).take
+    Friendship.where('user_id = ? and friend_id = ?', id, friend.id).take
   end
 end
