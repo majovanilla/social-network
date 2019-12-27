@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 class User < ApplicationRecord
@@ -53,7 +52,7 @@ class User < ApplicationRecord
   end
 
   def find_friendship(friend)
-    Friendship.where('user_id = ? and friend_id = ?', self.id, friend.id).take
+    Friendship.where('user_id = ? and friend_id = ?', id, friend.id).take
   end
 
 end

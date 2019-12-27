@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.feature 'Log in and out', type: :feature do
   scenario 'Succesfully logs in/out an existing user' do
     User.create(username: 'John',
-                       email: 'john@example.com',
-                       password: 'password')
+                email: 'john@example.com',
+                password: 'password')
     visit login_path
     page.fill_in 'user_email', with: 'john@example.com'
     page.fill_in 'user_password', with: 'password'

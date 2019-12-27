@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature "AddLikes", type: :feature do
+RSpec.feature 'AddLikes', type: :feature do
   scenario 'A logged user can post a comment' do
     User.create(username: 'John',
                 email: 'john@example.com',

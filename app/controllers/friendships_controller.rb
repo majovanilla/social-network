@@ -16,10 +16,9 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    friendship = Friendship.find(params[:friendship_id])
-    friendship.accepted = true
-    if friendship.save
-      Friendship.create(user: friendship.friend, friend: friendship.user, accepted: true)
+    @friendship = Friendship.find(params[:friendship_id])
+    @friendship.accepted = true
+    if save_double_user
       flash[:success] = 'Friendship accepted'
     else
       flash[:danger] = 'Try again'
@@ -48,5 +47,12 @@ class FriendshipsController < ApplicationController
 
   def friendship_params
     params.require(:friendship).permit(:user_id, :friend_id)
+  end
+
+  def save_double_user
+    ActiveRecord::Base.transaction do
+      @friendship.save
+      Friendship.create(user: @friendship.friend, friend: @friendship.user, accepted: true)
+    end
   end
 end
