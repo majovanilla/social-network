@@ -2,7 +2,7 @@
 
 > This project is a basic Facebook Clone using Ruby on Rails 6.
 
-![screenshot](./app_screenshot.png)
+![screenshot](img/screenshot.png)
 
 The objective of the project is to practice our Rails skills in:
   - Architecture Development using ERD
@@ -20,7 +20,7 @@ The objective of the project is to practice our Rails skills in:
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://powerful-scrubland-66847.herokuapp.com)
 
 
 ## Getting Started
