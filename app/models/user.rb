@@ -47,6 +47,8 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
+      user.password = Devise.friendly_token[0,20]
+
       user.username = auth.info.name
     end
   end
@@ -54,4 +56,5 @@ class User < ApplicationRecord
   def find_friendship(friend)
     Friendship.where('user_id = ? and friend_id = ?', id, friend.id).take
   end
+
 end

@@ -12,11 +12,11 @@ RSpec.feature 'Log in and out', type: :feature do
     page.fill_in 'user_password', with: 'password'
     click_on(class: 'login')
     expect(page.current_path).to eq root_path
-    # have_link user.username, href: user_path(user)
     have_link 'Users', href: users_path
     have_link 'Log out', href: destroy_user_session_path
     have_content 'posts-list'
     click_on 'Log out'
-    expect(page.current_path).to eq user_session_path
+    expect(page.current_path).to eq new_user_session_path
+    have_content 'Log in'
   end
 end
