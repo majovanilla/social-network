@@ -1,0 +1,55 @@
+
+/* Login page */
+
+.bg-login {
+  background: url('purp-bg.png') no-repeat;
+  background-size: cover;
+}
+
+.bg-purp {
+  background: url('purp2-bg.jpg') no-repeat;
+  background-size: cover;
+  border: 1px purple;
+}
+
+$gradient: linear-gradient(to left, rgba(183, 3, 243, 0.7), rgb(73, 1, 109));
+
+.field {
+  border-width: 3px;
+  border-style: solid;
+  border-image: $gradient 0 0 5;
+  outline: none;
+}
+
+.submit {
+    color: #fff;
+    background-image: $gradient;
+    border: none;
+    width: 100%;
+    margin-bottom: 0.5rem;
+
+    &:hover {
+      color: white;
+      background-color: rgb(53, 0, 80);
+    }
+}
+
+.btn-fb {
+  background-image: linear-gradient(to right, rgb(6, 79, 237), rgba(6, 79, 237, 0.7));
+  
+  &:hover {
+    background-color: rgb(6, 79, 237);
+  }
+}
+
+.link {
+  color: #6c757d !important;
+  
+  &:hover {
+    color: purple !important;
+  }
+}
+
+.logo {
+  width: 20%;
+}

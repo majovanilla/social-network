@@ -10,12 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
-  <%= render 'layouts/header' %>
+  <% unless controller_name == 'sessions' || controller_name == 'registrations' || controller_name == 'passwords'%>
+    <%= render 'layouts/header' %>
 
-  <body class = 'container'>
-    <% flash.each do |name, message| %>
-      <div class="alert alert-<%= name %>"><%= message %></div>
-    <% end %>
-    <%= yield %>
-  </body>
+    <body class = 'container-fluid'>
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </body>
+  <% else %>
+     <body class = 'container-fluid bg-login'>
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </body>
+  <% end %>
 </html>

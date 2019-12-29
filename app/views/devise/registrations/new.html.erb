@@ -1,31 +1,35 @@
-<h2>Sign up</h2>
+<%= render 'shared/login' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="col-5 bg-white px-4 py-4 border border-white rounded-right">
+  <h2 class="mb-3">Sign up</h2>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %><br />
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="">
+      <%= f.label :username, class:'text-secondary' %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "field col-12 mb-3" %><br />
+      <%= f.label :email, class:'text-secondary' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field col-12 mb-3" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :password, class:'text-secondary' %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "field col-12" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="mb-3">
+      <%= f.label :password_confirmation, class:'text-secondary'%>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "field col-12" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="actions py-1">
+      <%= f.submit "Sign up", class:'btn submit pb-1' %>
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+
+</div>
