@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("custom")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,7 +17,4 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//= require jquery-rails
-//= require popper
-//= require bootstrap
-//= require turbolinks
+import "bootstrap"

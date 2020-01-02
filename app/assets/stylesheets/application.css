@@ -10,11 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
+ *= require_tree . 
+ *= require_self
  */
 
-@import "bootstrap";
+@import 'bootstrap/dist/css/bootstrap';
 @import "posts";
 @import "login";
+@import "font-awesome";
 
 ul li {
   list-style-type: none;
@@ -30,4 +34,17 @@ ul li {
 
 .red {
   color: red;
+}
+
+.bg-app {
+  background-color: rgba(240, 193, 255, 0.7);
+}
+
+.navbar {
+  background-color: rgb(73, 1, 109);
+  color: white;
+}
+
+.nav-link {
+  color: white;
 }

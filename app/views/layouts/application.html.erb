@@ -5,22 +5,25 @@
     <title>SocialBook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/f6db959ed1.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
-  <% unless controller_name == 'sessions' || controller_name == 'registrations' || controller_name == 'passwords'%>
+  <header class="p-0">
     <%= render 'layouts/header' %>
+  </header>
 
-    <body class = 'container-fluid'>
+  <% unless controller_name == 'sessions' || controller_name == 'registrations' || controller_name == 'passwords'%>
+    <body class = 'container-fluid bg-app p-0'>
       <% flash.each do |name, message| %>
         <div class="alert alert-<%= name %>"><%= message %></div>
       <% end %>
       <%= yield %>
     </body>
   <% else %>
-     <body class = 'container-fluid bg-login'>
+     <body class = 'container-fluid bg-login p-0'>
       <% flash.each do |name, message| %>
         <div class="alert alert-<%= name %>"><%= message %></div>
       <% end %>

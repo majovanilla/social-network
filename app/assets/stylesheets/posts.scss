@@ -2,6 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.posts-list {
-  
+.post {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: white;
+  z-index: 2;
+}
+
+.post-name {
+  line-height: 1.3rem;
+}
+
+.text-area {
+  border: none;
+}
+
+.btn-like {
+  background: url(like.png) no-repeat;
+  width: 26px;
+  border: none;
+}
+
+.btn-comment {
+  background: url(comment.png) no-repeat 0/99%;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+
+.comment-content {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+$gradient: linear-gradient(to left, rgba(183, 3, 243, 0.7), rgb(73, 1, 109));
+
+.comment-field {
+  border: solid 3px transparent;
+  border-radius: 0.6rem;
+
+  position: relative;
+  box-sizing: border-box;
+
+  color: #000;
+  background: #FFF;
+  background-clip: padding-box;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -3px;
+    border-radius: inherit;
+    background: $gradient;
+  }
+}
+
+#submit-comment:focus {
+  outline: none;
 }

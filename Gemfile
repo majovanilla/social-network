@@ -26,11 +26,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+gem 'font-awesome-rails'
 gem 'gravtastic'
 gem 'jquery-rails'
 gem 'omniauth-facebook'
 gem 'popper_js'
 gem 'sprockets-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

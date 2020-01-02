@@ -1,12 +1,15 @@
-<ul class="comments-list"> 
+<h3 class="pl-4">Comments</h3>
+<ul class="comments-list pb-3 px-0"> 
   <% object.each do |c|%> 
-    <li>
-      <div >
-        <div class= "row col-8">
-          <%= image_tag c.user.gravatar_url(size:25)%> &nbsp
-          <p class="user-comment"><%=c.user.username %> &nbsp </p>
-          <body> <%= c.content %> </body>
-        </div>
+    <li  class= "row col-12 pb-1">
+      <div class="pr-1">
+        <%= image_tag c.user.gravatar_url(size:20), class:"rounded-circle"%>
+      </div>
+      <div class="comment-content row col-10">
+        <p class="pl-1 mb-0"> 
+          <span class="user-comment mb-0 pl-1"><%= link_to c.user.username %> </span>
+          <%= c.content %> 
+        </p>
       </div>
     </li>
   <% end %>
