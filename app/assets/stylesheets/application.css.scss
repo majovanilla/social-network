@@ -47,4 +47,8 @@ ul li {
 
 .nav-link {
   color: white;
+
+  &:hover {
+    color: rgb(255, 146, 255);
+  }
 }

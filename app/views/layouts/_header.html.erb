@@ -1,22 +1,27 @@
-<nav class="mb-5 w-100">
-    <nav id='logo' class="navbar navbar-expand-sm">
-        <p class="navbar-brand">SocialBook</p>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="collapse navbar-collapse list-style-none text-right" id="navbarSupportedContent">
-                <% if user_signed_in? %>
-                <li class="nav-item active"><%= link_to "Home", root_path, class:"nav-link" %></li>
-                <li class="nav-item active">
-                    <%= link_to current_user.username, user_path(current_user), class:"nav-link" %></li>
-                <li class="nav-item active"><%= link_to 'Users', users_path, class:"nav-link" %></li>
-
-                <li class="dropdown-item"><%= link_to "Notifications", user_friendships_path(current_user), class:"nav-link" %>
+<nav id='logo' class="navbar navbar-expand-md mb-5 w-100">
+    <p class="navbar-brand m-0">SocialBook</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><%= image_tag 'menu-icon', class: "w-75" %></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="collapse navbar-collapse list-style-none justify-content-end align-items-center m-0" id="navbarSupportedContent">
+            <% if user_signed_in? %>
+                <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= current_user.username%>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%= link_to 'Profile', user_path(current_user), class:"dropdown-item" %>
+                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                    </div>
+                </li>
+                <li class="nav-item"><%= link_to "Notifications", user_friendships_path(current_user), class:"nav-link" %>
                     <% if !current_user.friend_requests.empty? %>
                     <span class="badge badge-danger"><%= current_user.friend_requests.count %></span>
                     <% end %>
                 </li>
-                <li class="dropdown-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class:"nav-link" %></li>
-                <% end %>
-            </ul>
-        </div>
-    </nav>
+            <% end %>
+        </ul>
+    </div>
 </nav>
