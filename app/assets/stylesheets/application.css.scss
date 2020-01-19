@@ -37,7 +37,7 @@ ul li {
 }
 
 .bg-app {
-  background-color: rgba(240, 193, 255, 0.7);
+  background-color: rgba(201, 201, 201, 0.534);
 }
 
 .navbar {
@@ -51,4 +51,20 @@ ul li {
   &:hover {
     color: rgb(255, 146, 255);
   }
+}
+
+.alert-alert {
+  color: white;
+}
+
+/* ERRORS */
+
+.error-title {
+  font-size: 1rem;
+  color: rgba($color: #3f0069, $alpha: 0.75);
+}
+
+.error-message {
+  font-size: 0.8rem;
+  color: rgba($color: #3f0069, $alpha: 1.0);
 }

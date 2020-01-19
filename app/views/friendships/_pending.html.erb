@@ -1,8 +1,8 @@
 <h2 class="text-center my-5">Pending requests</h2>
 <ul class="users-list col-8 m-auto">
     <% if @pending_requests.empty? %>
-        <div class="card">
-        <p class = "text-center font-weight-bold red">All your requests have been accepted</p>
+        <div class="f-card">
+        <p class = "text-center font-weight-bold red">You have no pending requests</p>
         </div>    
     <% else %>
         <% @pending_requests.each do |user | %>
