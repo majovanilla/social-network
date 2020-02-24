@@ -2,7 +2,7 @@
 
 > This project is a basic Facebook Clone using Ruby on Rails 6.
 
-![screenshot](img/screenshot.png)
+![screenshot](app/assests/imgages/screenshot.png)
 
 The objective of the project is to practice our Rails skills in:
   - Architecture Development using ERD
