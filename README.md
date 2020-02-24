@@ -42,8 +42,7 @@ To get a local copy up and running follow these simple example steps.
 
 You need to have installed in your computer:
 
-- [Rails v. 6](Getting Started with Rails — Ruby on Rails Guides
-https://guides.rubyonrails.org › getting_started)
+- [Rails v. 6](https://guides.rubyonrails.org)
 
 - [RSpec](https://rspec.info/)
 
