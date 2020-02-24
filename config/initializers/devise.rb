@@ -298,5 +298,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   # Omniauth - Facebook
-  config.omniauth :facebook, "2541746986093190", "9b2c1b4acd13c321c65bd6d524f5b2f2", callback_url: "https://powerful-scrubland-66847.herokuapp.com/users/auth/facebook/callback"
+  config.omniauth :facebook, '289197438726875', 'b0213eba28ccb4f3634975f3868b2921', callback_url: 'https://serene-basin-51287.herokuapp.com/users/auth/facebook/callback'
 end
