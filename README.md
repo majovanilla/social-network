@@ -1,4 +1,4 @@
-# Social Book
+# Social Network
 
 > This project is a basic Facebook Clone using Ruby on Rails 6.
 
