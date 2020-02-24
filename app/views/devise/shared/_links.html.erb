@@ -3,9 +3,7 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class:'btn btn-fb text-white w-100' %><br />
   <% end %>
 <% end %>
-
 <br>
-
 <%- if controller_name != 'sessions' %>
   <%= link_to "Already a User? Log in", new_session_path(resource_name), class:'btn w-100 text-secondary'%><br />
 <% end %>

@@ -20,7 +20,7 @@ The objective of the project is to practice our Rails skills in:
 
 ## Live Demo
 
-[Live Demo Link](https://powerful-scrubland-66847.herokuapp.com)
+[Live Demo Link](https://serene-basin-51287.herokuapp.com/)
 
 
 ## Getting Started

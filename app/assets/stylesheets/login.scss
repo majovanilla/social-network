@@ -2,12 +2,17 @@
 /* Login page */
 
 .bg-login {
+<<<<<<< HEAD
   background:rgb(249, 245, 251);
+=======
+  background-color: rgba(201, 201, 201, 0.534);
+>>>>>>> a3d34d7687c2cbea076c26eb0cecea133082c927
   background-size: cover;
 }
 
 .bg-purp {
   background: url('purp2-bg.jpg') no-repeat;
+  opacity: 0.5;
   background-size: cover;
   border: 1px purple;
 }

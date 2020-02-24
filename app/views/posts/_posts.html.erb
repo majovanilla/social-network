@@ -2,22 +2,24 @@
   <% object.each do |post|%>
     <% if current_user.friends.include?(post.user) || post.user == current_user%>  
       <li class='col-12 post mb-5 py-4 px-0'>
-        <div class="row col-12 post-name border-bottom mb-1 pb-3 m-auto px-5">
+        <div class="row col-12 post-name border-bottom mb-1 pb-3 m-auto px-3">
           <%= image_tag post.user.gravatar_url(size:40), class:"rounded-circle"%>
           <div class="d-flex flex-column text-left pl-2">
             <p class="font-weight-bold m-0"><%= post.user.username %></p>
-            <p class="text-secondary m-0">Posted <%= time_ago_in_words(post.created_at)%> ago</p>
+            <p class="text-secondary m-0 time-text">Posted <%= time_ago_in_words(post.created_at)%> ago</p>
           </div>
         </div>
         <p class="col-12 border-bottom mb-1 py-5"> <%= post.content %> </p>
         <div class="post-footer col-12 d-flex justify-content-start px-5 py-2">
           <div class='like d-flex align-items-center py-0 pr-2'>
             <%= render 'likes/likes', post_id: post.id, post: post %>
-            <p class='m-0 pl-1 text-secondary'><%= pluralize(post.likes.count, 'Like') %></p>
+            <p class='m-0 pl-1 text-secondary d-none d-md-block'><%= pluralize(post.likes.count, 'Like') %></p>
+            <p class='m-0 pl-1 text-secondary d-md-none'><%= post.likes.count %></p>
           </div>
           <div class='comment d-flex align-items-center p-0'>
             <button class="btn-comment" type="button" data-toggle="collapse" data-target="#comments-toggle" aria-expanded="false" aria-controls="comments-toggle"></button>
-            <p class='m-0 pl-1 text-secondary'><%= pluralize(post.comments.count, 'Comment') %></p>
+            <p class='m-0 pl-1 text-secondary d-none d-md-block'><%= pluralize(post.comments.count, 'Comment') %></p>
+            <p class='m-0 pl-1 text-secondary d-md-none'><%= post.comments.count %></p>
           </div>
         </div>
         <div id="comments-toggle" class="collapse border-bottom">
