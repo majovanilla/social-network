@@ -78,8 +78,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Final Project of the Rails Section from the [Microverse Curriculum] (https://www.microverse.org/)
-- We follow the instructions of [The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
+- Final Project of the Rails Section from the [Microverse Curriculum](https://www.microverse.org/)
+- We followed the instructions of [The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
 ## 📝 License
 
