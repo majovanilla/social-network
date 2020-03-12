@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'posts#index'
+
+  get '/auth/:provider/callback', to: 'devise/sessions#create'
 
   resources :posts
   post '/', to: 'posts#create'
@@ -21,5 +23,4 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
     get 'login', to: 'devise/sessions#new'
   end
-
 end

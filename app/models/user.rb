@@ -23,12 +23,16 @@ class User < ApplicationRecord
 
   # Users who have yet to confirme friend requests
   def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.accepted }.compact
+    friendships.map do |friendship|
+      friendship.friend unless friendship.accepted
+    end .compact
   end
 
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.accepted }.compact
+    inverse_friendships.map do |friendship|
+      friendship.user unless friendship.accepted
+    end .compact
   end
 
   def friend?(user)
@@ -47,8 +51,6 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.password = Devise.friendly_token[0,20]
-
       user.username = auth.info.name
     end
   end
@@ -57,5 +59,4 @@ class User < ApplicationRecord
     Friendship.where('user_id = ? and friend_id = ?', id, friend.id).take ||
       Friendship.where('user_id = ? and friend_id = ?', friend.id, id).take
   end
-
 end
